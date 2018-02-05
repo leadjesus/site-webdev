@@ -3,15 +3,15 @@
 @TestOn('browser')
 
 // #enddocregion
-import 'package:angular/angular.dart';
 import 'package:angular_test/angular_test.dart';
 import 'package:test/test.dart';
 
 import 'package:angular_tour_of_heroes/app_component.dart';
+import 'package:angular_tour_of_heroes/app_component.template.dart';
 
 // #docregion initial
-@AngularEntrypoint()
-void main() {
+void main() async {
+  await initReflector();
   // #docregion test-bed-and-fixture
   final testBed = new NgTestBed<AppComponent>();
   NgTestFixture<AppComponent> fixture;
