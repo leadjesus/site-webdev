@@ -1,32 +1,32 @@
 // #docregion
-@Tags(const ['aot'])
 @TestOn('browser')
 import 'dart:async';
 
-import 'package:angular/angular.dart';
 import 'package:angular_test/angular_test.dart';
 import 'package:angular_tour_of_heroes/app_component.dart';
 import 'package:pageloader/objects.dart';
 import 'package:test/test.dart';
 
+import 'app_test.template.dart' as ng;
+
 // #docregion AppPO, AppPO-initial, AppPO-hero, AppPO-input
-class AppPO {
+class AppPO extends PageObjectBase {
   // #enddocregion AppPO-hero, AppPO-input
   @ByTagName('h1')
-  PageLoaderElement _title;
+  PageLoaderElement get _title => q('h1');
   // #enddocregion AppPO-initial
 
   // #docregion AppPO-hero
   @FirstByCss('div')
-  PageLoaderElement _id; // e.g. 'id: 1'
+  PageLoaderElement get _id => q('div'); // e.g. 'id: 1'
 
   @ByTagName('h2')
-  PageLoaderElement _heroName; // e.g. 'Mr Freeze details!'
+  PageLoaderElement get _heroName => q('h2'); // e.g. 'Mr Freeze details!'
   // #enddocregion AppPO-hero
 
   // #docregion AppPO-input
   @ByTagName('input')
-  PageLoaderElement _input;
+  PageLoaderElement get _input => q('input');
   // #enddocregion AppPO-input
 
   // #docregion AppPO-initial
@@ -51,8 +51,8 @@ class AppPO {
 }
 // #enddocregion AppPO, AppPO-initial, AppPO-hero, AppPO-input
 
-@AngularEntrypoint()
 void main() {
+  ng.initReflector();
   // #docregion appPO-setup
   final testBed = new NgTestBed<AppComponent>();
   NgTestFixture<AppComponent> fixture;
@@ -60,7 +60,7 @@ void main() {
 
   setUp(() async {
     fixture = await testBed.create();
-    appPO = await fixture.resolvePageObject(AppPO);
+    appPO = await new AppPO().resolve(fixture);
   });
   // #enddocregion appPO-setup
 

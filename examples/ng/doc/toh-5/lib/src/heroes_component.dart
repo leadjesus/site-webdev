@@ -15,7 +15,7 @@ import 'hero_service.dart';
   templateUrl: 'heroes_component.html',
   styleUrls: const ['heroes_component.css'],
   // #enddocregion renaming
-  directives: const [CORE_DIRECTIVES],
+  directives: const [coreDirectives],
   // #docregion pipes
   pipes: const [COMMON_PIPES],
   // #docregion renaming
@@ -47,11 +47,9 @@ class HeroesComponent implements OnInit {
   void onSelect(Hero hero) => selectedHero = hero;
 
   // #docregion gotoDetail, gotoDetail-stub
-  Future<Null> gotoDetail() => _router.navigate([
-    // #enddocregion gotoDetail-stub
-        'HeroDetail',
-        {'id': selectedHero.id.toString()}
-      ]);
+  Future<NavigationResult> gotoDetail() =>
+      // #enddocregion gotoDetail-stub
+      _router.navigate('/detail/${selectedHero.id}');
   // #enddocregion gotoDetail
   // #docregion renaming
 }

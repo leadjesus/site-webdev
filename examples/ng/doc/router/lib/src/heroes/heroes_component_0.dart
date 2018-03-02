@@ -11,7 +11,7 @@ import 'hero_service.dart';
   selector: 'my-heroes',
   templateUrl: 'heroes_component_0.html',
   styleUrls: const ['heroes_component.css'],
-  directives: const [CORE_DIRECTIVES],
+  directives: const [coreDirectives],
   pipes: const [COMMON_PIPES],
 )
 class HeroesComponent implements OnInit {

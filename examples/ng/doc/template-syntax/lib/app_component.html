@@ -447,11 +447,6 @@ without NgModel
 <!-- #enddocregion NgModel-1 -->
 [(ngModel)]
 <br>
-<!-- #docregion NgModel-2 -->
-<input bindon-ngModel="currentHero.name">
-<!-- #enddocregion NgModel-2 -->
-bindon-ngModel
-<br>
 <!-- #docregion NgModel-3 -->
 <input
   [ngModel]="currentHero.name"
@@ -671,11 +666,6 @@ bindon-ngModel
 <!-- phone refers to the input element; pass its `value` to an event handler -->
 <button (click)="callPhone(phone.value)">Call</button>
 <!-- #enddocregion ref-phone -->
-
-<!-- #docregion ref-fax -->
-<input ref-fax placeholder="fax number">
-<button (click)="callFax(fax.value)">Fax</button>
-<!-- #enddocregion ref-fax -->
 
 <!-- btn refers to the button element; show its disabled state -->
 <button #btn disabled [innerHTML]="'disabled by attribute: ' + btn.disabled.toString()"></button>

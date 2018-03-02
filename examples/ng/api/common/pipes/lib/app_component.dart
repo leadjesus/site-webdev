@@ -9,7 +9,7 @@ import 'async_pipe.dart';
   selector: 'my-app',
   templateUrl: 'app_component.html',
   directives: const [
-    CORE_DIRECTIVES,
+    coreDirectives,
     AsyncGreeterPipe,
     AsyncTimePipe,
   ],

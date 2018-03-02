@@ -76,7 +76,7 @@ Start writing the `HeroDetailComponent` as follows:
 
   @Component(
     selector: 'hero-detail',
-    directives: const [CORE_DIRECTIVES, formDirectives],
+    directives: const [coreDirectives, formDirectives],
   )
   class HeroDetailComponent {
   }
@@ -181,7 +181,7 @@ Here's the complete `HeroDetailComponent`.
           <input [(ngModel)]="hero.name" placeholder="name">
         </div>
       </div>''',
-    directives: const [CORE_DIRECTIVES, formDirectives],
+    directives: const [coreDirectives, formDirectives],
   )
   class HeroDetailComponent {
     @Input()
@@ -259,7 +259,7 @@ list. You don't need `formDirectives` anymore, so delete it and the
 
 <?code-excerpt "lib/app_component.dart (directives)" title?>
 ```
-  directives: const [CORE_DIRECTIVES, HeroDetailComponent],
+  directives: const [coreDirectives, HeroDetailComponent],
 ```
 
 <i class="material-icons">open_in_browser</i>

@@ -372,13 +372,13 @@ _view-to-source-to-view_.
   </tr>
   <tr>
     <td>Two-way</td>
-    <td><code-example>[(target)]="expression"<br>bindon-target="expression"</code-example></td>
+    <td><code-example>[(target)]="expression"</code-example></td>
     <td>Two-way</td>
   </tr>
 </table>
 
 Binding types other than interpolation have a **target name** to the left of the equal sign,
-either surrounded by punctuation (`[]`, `()`) or preceded by a prefix (`bind-`, `on-`, `bindon-`).
+either surrounded by punctuation (`[]`, `()`, `[()]`) or preceded by a prefix (`bind-`, `on-`).
 
 The target name is the name of a _property_. It might look like the name of an _attribute_ but it never is.
 To appreciate the difference, you must develop a new way to think about template HTML.
@@ -1926,15 +1926,6 @@ Learn the difference in the [_Structural Directives_](structural-directives.html
 The scope of a reference variable is the _entire template_.
 Do not define the same variable name more than once in the same template.
 The runtime value will be unpredictable.
-
-You can use the `ref-` prefix alternative to `#`.
-This example declares the `fax` variable as `ref-fax` instead of `#fax`.
-
-<?code-excerpt "lib/app_component.html (ref-fax)"?>
-```
-  <input ref-fax placeholder="fax number">
-  <button (click)="callFax(fax.value)">Fax</button>
-```
 
 <a href="#contents">back to top</a>
 <div class="l-hr"></div>

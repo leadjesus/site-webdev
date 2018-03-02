@@ -11,7 +11,7 @@ import 'hero_service.dart';
   templateUrl: 'hero_list_component.html',
   providers: const [HeroService],
   styles: const ['.error {color:red;}'],
-  directives: const [CORE_DIRECTIVES],
+  directives: const [coreDirectives],
 )
 // #docregion component
 class HeroListComponent implements OnInit {

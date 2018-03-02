@@ -13,18 +13,22 @@ import 'hero_service.dart';
   selector: 'hero-detail',
   templateUrl: 'hero_detail_component.html',
   styleUrls: const ['hero_detail_component.css'],
-  directives: const [CORE_DIRECTIVES, formDirectives],
+  directives: const [coreDirectives, formDirectives],
 )
-class HeroDetailComponent implements OnInit {
+class HeroDetailComponent implements OnActivate {
   Hero hero;
   final HeroService _heroService;
-  final RouteParams _routeParams;
   final Location _location;
 
-  HeroDetailComponent(this._heroService, this._routeParams, this._location);
+  HeroDetailComponent(this._heroService, this._location);
 
-  Future<Null> ngOnInit() async {
-    var _id = _routeParams.get('id');
+  @override
+  void onActivate(_, RouterState current) {
+    updateHero(current);
+  }
+
+  Future<Null> updateHero(RouterState routerState) async {
+    var _id = routerState.parameters['id'];
     var id = int.parse(_id ?? '', onError: (_) => null);
     if (id != null) hero = await (_heroService.getHero(id));
   }

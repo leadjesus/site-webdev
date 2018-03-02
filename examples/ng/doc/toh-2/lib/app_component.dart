@@ -18,7 +18,7 @@ import 'src/mock_heroes.dart';
   styleUrls: const ['app_component.css'],
   // #enddocregion styleUrls
   // #docregion directives
-  directives: const [CORE_DIRECTIVES, formDirectives],
+  directives: const [coreDirectives, formDirectives],
   // #docregion styleUrls
 )
 // #enddocregion directives, styleUrls

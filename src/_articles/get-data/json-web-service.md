@@ -31,7 +31,7 @@ represents information about the Dart language:
 {% prettify json %}
 {
   "language": "dart",                                 // String
-  "targets": ["dartium","javascript"],                // List
+  "targets": ["chrome","javascript"],                // List
   "website": {                                        // Map
     "homepage": "www.dartlang.org",
     "api": "api.dartlang.org"
@@ -180,7 +180,7 @@ Use <code>JSON.decode()</code> to convert the HttpRequest's response from raw te
 void onDataLoaded(HttpRequest req) {
   Map data = JSON.decode(req.responseText); // parse response text
   print(data["language"]); // dart
-  print(data["targets"][0]); // dartium
+  print(data["targets"][0]); // chrome
   print(data["website"]["homepage"]); // www.dartlang.org
 }
 {% endprettify %}
@@ -195,7 +195,7 @@ void saveData() {
   var mapData = new Map();
   mapData["language"] = "dart";
   mapData["targets"] = new List();
-  mapData["targets"].add("dartium");
+  mapData["targets"].add("chrome");
 
   String jsonData = JSON.encode(mapData); // convert map to String
   request.send(jsonData); // perform the async POST
@@ -326,7 +326,7 @@ converting from a JSON string, by using the default constructor:
   var data = new JsonObject();
   data.language = "Dart";
   data.targets = new List();
-  data.targets.add("Dartium");
+  data.targets.add("chrome");
 {% endprettify %}
 
 JsonObject also implements the Map interface, which means that you can use the

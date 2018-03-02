@@ -92,7 +92,7 @@ installing Dart is easy.
 
 {% prettify shell %}
 brew tap dart-lang/dart
-brew install dart --with-content-shell --with-dartium
+brew install dart
 {% endprettify %}
 </div>
 More information:
@@ -133,6 +133,8 @@ More information:
 * [Setup for AngularDart development](/angular/guide/setup)
 
 ## 5. Run the app
+
+{% include webstorm-angular5.html %}
 
 To run the app from WebStorm, right-click the app's `web/index.html` file and choose
 **Run 'index.html'**.

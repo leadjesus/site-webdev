@@ -13,7 +13,7 @@ import 'hero.dart';
   selector: 'hero-search',
   templateUrl: 'hero_search_component.html',
   styleUrls: const ['hero_search_component.css'],
-  directives: const [CORE_DIRECTIVES],
+  directives: const [coreDirectives],
   providers: const [HeroSearchService],
   pipes: const [COMMON_PIPES],
 )
@@ -50,11 +50,5 @@ class HeroSearchComponent implements OnInit {
   }
   // #enddocregion search
 
-  void gotoDetail(Hero hero) {
-    var link = [
-      'HeroDetail',
-      {'id': hero.id.toString()}
-    ];
-    _router.navigate(link);
-  }
+  Future gotoDetail(Hero hero) => _router.navigate('/detail/${hero.id}');
 }

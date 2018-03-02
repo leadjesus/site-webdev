@@ -1,15 +1,15 @@
-@Tags(const ['aot'])
 @TestOn('browser')
 library angular_simple_test;
 
-import 'package:angular/angular.dart';
 import 'package:ng_test.github_issues/api.dart';
 import 'package:ng_test.github_issues/ui.dart';
 import 'package:angular_test/angular_test.dart';
 import 'package:test/test.dart';
 
-@AngularEntrypoint()
+import 'issue_body_test.template.dart' as ng;
+
 void main() {
+  ng.initReflector();
   tearDown(disposeAnyRunningTest);
 
   group('$IssueBodyComponent', () {

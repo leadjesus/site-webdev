@@ -19,6 +19,66 @@ Also see:
   * [`angular_components` changelog](https://pub.dartlang.org/packages/angular_components#-changelog-tab-)
   * [`angular2` changelog][]
 
+## AngularDart 5.0 alpha (February 2018)
+
+- Updated **Angular package versions** in `pubspec.yaml`
+  - `angular: {{site.data.pubspec.dependencies.angular}}`
+  - `angular_components: {{site.data.pubspec.dependencies.angular_components}}`
+  - `angular_forms: {{site.data.pubspec.dependencies.angular_forms}}`
+  - `angular_router: {{site.data.pubspec.dependencies.angular_router}}`
+  - `angular_test: {{site.data.pubspec.dependencies.angular_test}}`
+- Switched to **new build system**:
+  - Added new `dev_dependencies`:
+    - `build_runner: {{site.data.pubspec.dev_dependencies.build_runner}}`
+    - `build_test: {{site.data.pubspec.dev_dependencies.build_test}}`
+    - `build_web_compilers: {{site.data.pubspec.dev_dependencies.build_web_compilers}}`
+  - Dropped `dev_dependencies`:
+    - <del>`browser`</del>
+    - <del>`dart_to_js_script_rewriter`</del>
+  - Dropped all old pub `transformers`:
+    - <del>`angular`</del>
+    - <del>`dart_to_js_script_rewriter`</del>
+    - <del>`test/pub_serve`</del>
+- Adjusted `web/index.html` files because Dartium is no longer supported:
+    - Dropped <del>`<script defer src="packages/browser/dart.js"></script>`</del>
+    - Replaced `<script defer src="main.dart" type="application/dart"></script>` by<br>
+      `<script defer src="main.dart.js"></script>`
+  - Note: `test` version 0.12.30 or later runs chrome tests headless by default.
+    We were already using version 0.12.30 along with the Angular 4 examples.
+- Added error option to `analysis_options.yaml`:
+  - `uri_has_not_been_generated: ignore`
+- Switched to new approach to **bootstrapping** in `web/main.dart` files:
+  - Added `import 'main.template.dart' as ng;`
+  - Renamed `bootstrap()` to `bootstrapStatic()`
+  - Added an empty list of providers (`[]`), if call to `bootstrap()` originally
+    had only one argument
+  - Added `ng.initReflector()` as the third argument to `bootstrapStatic()`
+- Updated all `test/*_test.dart` files and their **Angular entry points**:
+  - Dropped <del>`@Tags(const ['aot'])`</del>
+  - Dropped <del>`import 'package:angular/angular.dart'`<del>
+  - Added `import 'foo_test.template.dart' as ng;` in `foo_test.dart`
+  - For every function `bar()` annotated with `@AngularEntrypoint()`:
+    - Dropped <del>`@AngularEntrypoint()`</del>
+    - Added a call to `ng.initReflector();` at the start of `bar()`
+- Adjusted to new **template syntax**:
+  - _Binding syntax_:
+    - <code>bindon-<i>target</i></code> for [two-way bindings][]
+      is no longer supported. Use <code>[(<i>target</i>)]</code> instead.
+    - <code>ref-<i>var</i></code> for [template reference variables][]
+      is no longer supported. Use <code>#<i>var</i></code> instead.
+  - [ngFor][] _microsyntax_ statements must be separated using semicolon (`;`).<br>
+      Using a space or comma to separate statements is no longer supported.
+- Switched to use of new **Angular router** API:
+  - There are many Dart file changes (too many to list all here) including:
+    - `ROUTER_DIRECTIVES` &rarr; `routerDirectives`
+    - `ROUTER_PROVIDERS` &rarr; `routerProviders`,
+      and provide through [bootstrap][] (recommended)
+- Other Dart file changes:
+  -  `CORE_DIRECTIVES` &rarr; `coreDirectives`
+  - Template-syntax example changes due to the [deprecation of `QueryList`](https://github.com/dart-lang/angular/blob/master/doc/deprecated_query_list.md)
+    - Replaced `QueryList<T>` by `List<T>`
+    - Switched to using setter to detect changes to view children (`@ViewChildren()`)
+
 ## HTML library tour (December 2017)
 
 We've moved the dart:html section from the
@@ -225,4 +285,8 @@ More information:
 
 [`angular` changelog]: https://pub.dartlang.org/packages/angular/versions/{{site.data.pkg-vers.angular.vers | url_escapse}}#-changelog-tab-
 [`angular2` changelog]: https://pub.dartlang.org/packages/angular2#-changelog-tab-
+[bootstrap]: /api/angular/angular/bootstrap
 [forms]: /angular/guide/forms
+[ngFor]: /angular/guide/template-syntax#ngFor
+[template reference variables]: /angular/guide/template-syntax#ref-vars
+[two-way bindings]: /angular/guide/template-syntax#two-way

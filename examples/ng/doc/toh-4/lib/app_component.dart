@@ -16,7 +16,7 @@ import 'src/hero_service.dart';
   templateUrl: 'app_component.html',
   // #enddocregion template
   styleUrls: const ['app_component.css'],
-  directives: const [CORE_DIRECTIVES, HeroDetailComponent],
+  directives: const [coreDirectives, HeroDetailComponent],
   providers: const [HeroService],
 )
 class AppComponent implements OnInit {

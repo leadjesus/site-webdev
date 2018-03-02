@@ -108,7 +108,7 @@ Instead, provide the `VillainsService` in the `providers` metadata of the `Villa
           </ul>
         </div>
       ''',
-    directives: const [CORE_DIRECTIVES],
+    directives: const [coreDirectives],
     providers: const [VillainsService],
     pipes: const [COMMON_PIPES],
   )
@@ -220,7 +220,7 @@ Here is the `HeroTaxReturnComponent` that makes use of it.
         </div>
       ''',
       styleUrls: const ['hero_tax_return_component.css'],
-      directives: const [CORE_DIRECTIVES, formDirectives],
+      directives: const [coreDirectives, formDirectives],
       providers: const [HeroTaxReturnService])
   class HeroTaxReturnComponent {
     final HeroTaxReturnService _heroTaxReturnService;

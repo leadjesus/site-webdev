@@ -246,7 +246,7 @@ app root, not the component file.
             {!{member}!}
           </li>
         </ul>''',
-    directives: const [CORE_DIRECTIVES],
+    directives: const [coreDirectives],
   )
   class HeroTeamComponent {
     @Input()

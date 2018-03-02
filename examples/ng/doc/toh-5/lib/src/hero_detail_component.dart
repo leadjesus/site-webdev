@@ -23,33 +23,39 @@ import 'hero_service.dart';
   // #enddocregion metadata-wo-style, templateUrl, v2
   styleUrls: const ['hero_detail_component.css'],
   // #docregion metadata-wo-style
-  directives: const [CORE_DIRECTIVES, formDirectives],
+  directives: const [coreDirectives, formDirectives],
   // #docregion v2
 )
 // #enddocregion metadata, metadata-wo-style
-// #docregion implement, hero
-class HeroDetailComponent implements OnInit {
-  // #enddocregion implement
+// #docregion OnActivate, hero
+class HeroDetailComponent implements OnActivate {
+  // #enddocregion OnActivate
   Hero hero;
   // #enddocregion hero
   // #docregion ctor
   final HeroService _heroService;
-  final RouteParams _routeParams;
   final Location _location;
 
-  HeroDetailComponent(this._heroService, this._routeParams, this._location);
+  HeroDetailComponent(this._heroService, this._location);
   // #enddocregion ctor
 
-  // #docregion ngOnInit
-  Future<Null> ngOnInit() async {
-    var _id = _routeParams.get('id');
+  // #docregion OnActivate
+  @override
+  void onActivate(_, RouterState current) {
+    updateHero(current);
+  }
+  // #enddocregion OnActivate
+
+  // #docregion updateHero
+  Future<Null> updateHero(RouterState routerState) async {
+    var _id = routerState.parameters['id'];
     var id = int.parse(_id ?? '', onError: (_) => null);
     if (id != null) hero = await (_heroService.getHero(id));
   }
-  // #enddocregion ngOnInit
+  // #enddocregion updateHero
 
   // #docregion goBack
   void goBack() => _location.back();
   // #enddocregion goBack
-  // #docregion hero
+  // #docregion hero, OnActivate
 }

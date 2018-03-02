@@ -11,7 +11,7 @@ import 'package:ng_bootstrap/ng_bootstrap.dart';
   selector: 'issue-list',
   directives: const [
     BS_DIRECTIVES,
-    CORE_DIRECTIVES,
+    coreDirectives,
     formDirectives,
     IssueBodyComponent,
     IssueTitleComponent,

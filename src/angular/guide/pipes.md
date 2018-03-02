@@ -272,7 +272,7 @@ your pipe and two-way data binding with `ngModel`.
         Super Hero Power: {!{power | exponentialStrength: factor}!}
       </p>
     ''',
-    directives: const [CORE_DIRECTIVES, formDirectives],
+    directives: const [coreDirectives, formDirectives],
     pipes: const [ExponentialStrengthPipe],
   )
   class PowerBoostCalculatorComponent {
@@ -480,7 +480,7 @@ You can derive a `FlyingHeroesImpureComponent` from `FlyingHeroesComponent`.
     selector: 'flying-heroes-impure',
     templateUrl: 'flying_heroes_component.html',
     pipes: const [FlyingHeroesImpurePipe],
-    directives: const [CORE_DIRECTIVES, formDirectives],
+    directives: const [coreDirectives, formDirectives],
   )
   class FlyingHeroesImpureComponent extends FlyingHeroesComponent {
     FlyingHeroesImpureComponent() {
@@ -603,7 +603,7 @@ both requesting the heroes from the `heroes.json` file.
 
         <p>Heroes as JSON: {!{'heroes.json' | fetch | json}!}</p>
       ''',
-      directives: const [CORE_DIRECTIVES],
+      directives: const [coreDirectives],
       pipes: const [COMMON_PIPES, FetchJsonPipe])
   class HeroListComponent {}
 ```

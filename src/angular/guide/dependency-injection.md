@@ -359,18 +359,33 @@ Applications are bootstrapped in `web/main.dart`:
   import 'package:angular/angular.dart';
   import 'package:dependency_injection/app_component.dart';
 
+  import 'main.template.dart' as ng;
+
   void main() {
-    bootstrap(AppComponent);
+    bootstrapStatic(AppComponent, [], ng.initReflector);
   }
 ```
 
 The first argument to `bootstrap()` is the app root component class.
-The second optional argument is a providers list. For example:
+The second argument is a providers list.
+The last argument is the statically generated provider registration function
+for the app. By using this function, DI works without runtime reflection.
+
+<aside class="alert alert-warning" markdown="1">
+  **Important:** We expect that the name of the `bootstrapStatic()` function
+  will change, and that most apps won't need to import the generated
+  Angular template file `main.template.dart`.
+  For details, see [issue #756](https://github.com/dart-lang/angular/issues/756).
+</aside>
+
+For example:
 
 <?code-excerpt "web/main_1.dart (discouraged)" region="bootstrap-discouraged"?>
 ```
-  bootstrap(AppComponent,
-    [HeroService]); // DISCOURAGED (but works)
+  bootstrapStatic(
+      AppComponent,
+      [HeroService], // DISCOURAGED (but works)
+      ng.initReflector);
 ```
 
 An instance of the `HeroService` will now be available for injection across the entire app.
@@ -384,8 +399,7 @@ Because the `HeroService` is used within the *Heroes* feature set, and nowhere e
 the ideal place to register it is in `HeroesComponent`.
 
 Here's a more realistic example of bootstrap providers, taken from the
-[tutorial, part 5](../tutorial/toh-pt5). It also gives
-you a taste of more advanced concepts that will be presented later in this page.
+[tutorial, part 5](../tutorial/toh-pt5):
 
 <?code-excerpt "../toh-5/web/main.dart" title?>
 ```
@@ -393,12 +407,15 @@ you a taste of more advanced concepts that will be presented later in this page.
   import 'package:angular_router/angular_router.dart';
   import 'package:angular_tour_of_heroes/app_component.dart';
 
+  import 'main.template.dart' as ng;
+
   void main() {
-    bootstrap(AppComponent, [
-      ROUTER_PROVIDERS,
-      // Remove next line in production
-      provide(LocationStrategy, useClass: HashLocationStrategy),
-    ]);
+    bootstrapStatic(
+        AppComponent,
+        [
+          routerProvidersHash // You can use routerProviders in production
+        ],
+        ng.initReflector);
   }
 ```
 

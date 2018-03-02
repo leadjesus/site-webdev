@@ -15,7 +15,7 @@ import 'src/hero_service_1.dart';
     </div>
     <hero-detail [hero]="selectedHero"></hero-detail>
     ''',
-  directives: const [CORE_DIRECTIVES, HeroDetailComponent],
+  directives: const [coreDirectives, HeroDetailComponent],
   // #docregion providers
   providers: const [HeroService],
 // #enddocregion providers

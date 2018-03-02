@@ -1,5 +1,4 @@
 // #docregion
-@Tags(const ['aot'])
 @TestOn('browser')
 
 import 'package:angular/angular.dart';
@@ -20,18 +19,17 @@ final mockRouter = new MockRouter();
 
 class MockRouter extends Mock implements Router {}
 
-@AngularEntrypoint()
 void main() {
   // #docregion providers
   final testBed = new NgTestBed<HeroesComponent>().addProviders([
-    provide(Router, useValue: mockRouter),
     HeroService,
+    provide(Router, useValue: mockRouter),
   ]);
   // #enddocregion providers
 
   setUp(() async {
     fixture = await testBed.create();
-    po = await fixture.resolvePageObject(HeroesPO);
+    po = await new HeroesPO().resolve(fixture);
   });
 
   tearDown(disposeAnyRunningTest);
@@ -63,7 +61,7 @@ void selectedHeroTests() {
 
   setUp(() async {
     await po.selectHero(4);
-    po = await fixture.resolvePageObject(HeroesPO);
+    po = await new HeroesPO().resolve(fixture);
   });
 
   // #enddocregion go-to-detail
@@ -79,18 +77,14 @@ void selectedHeroTests() {
   // #docregion go-to-detail
   test('go to detail', () async {
     await po.gotoDetail();
-    final c = verify(mockRouter.navigate(captureAny));
-    final linkParams = [
-      'HeroDetail',
-      {'id': '${targetHero['id']}'}
-    ];
-    expect(c.captured.single, linkParams);
+    final c = verify(mockRouter.navigate(typed(captureAny)));
+    expect(c.captured.single, '/detail/${targetHero['id']}');
   });
   // #enddocregion go-to-detail
 
   test('select another hero', () async {
     await po.selectHero(0);
-    po = await fixture.resolvePageObject(HeroesPO);
+    po = await new HeroesPO().resolve(fixture);
     final heroData = {'id': 11, 'name': 'Mr. Nice'};
     expect(await po.selectedHero, heroData);
   });

@@ -12,7 +12,7 @@ import 'hero_service.dart';
   selector: 'my-heroes',
   templateUrl: 'heroes_component.html',
   styleUrls: const ['heroes_component.css'],
-  directives: const [CORE_DIRECTIVES, HeroDetailComponent],
+  directives: const [coreDirectives, HeroDetailComponent],
   pipes: const [COMMON_PIPES],
 )
 class HeroesComponent implements OnInit {
@@ -48,8 +48,5 @@ class HeroesComponent implements OnInit {
 
   void onSelect(Hero hero) => selectedHero = hero;
 
-  Future<Null> gotoDetail() => _router.navigate([
-        'HeroDetail',
-        {'id': selectedHero.id.toString()}
-      ]);
+  Future gotoDetail() => _router.navigate('/detail/${selectedHero.id}');
 }

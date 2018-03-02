@@ -9,7 +9,7 @@ import 'logger_service.dart';
 @Component(
   selector: 'my-child',
   template: '<input [(ngModel)]="hero">',
-  directives: const [CORE_DIRECTIVES, formDirectives],
+  directives: const [coreDirectives, formDirectives],
 )
 class ChildComponent {
   String hero = 'Magneta';
@@ -26,7 +26,7 @@ class ChildComponent {
     <p *ngIf="comment.isNotEmpty" class="comment">{{comment}}</p>
     ''',
   // #enddocregion template
-  directives: const [CORE_DIRECTIVES],
+  directives: const [coreDirectives],
 )
 // #docregion hooks
 class AfterContentComponent implements AfterContentChecked, AfterContentInit {
@@ -102,7 +102,7 @@ class AfterContentComponent implements AfterContentChecked, AfterContentInit {
   // #enddocregion parent-template
   styles: const ['.parent {background: burlywood}'],
   providers: const [LoggerService],
-  directives: const [CORE_DIRECTIVES, AfterContentComponent, ChildComponent],
+  directives: const [coreDirectives, AfterContentComponent, ChildComponent],
 )
 class AfterContentParentComponent {
   final LoggerService _logger;

@@ -1,23 +1,22 @@
-@Tags(const ['aot'])
 @TestOn('browser')
 
-import 'package:angular/angular.dart';
 import 'package:angular_test/angular_test.dart';
 import 'package:angular_tour_of_heroes/app_component.dart';
 import 'package:test/test.dart';
 
 import 'app_po.dart';
+import 'app_test.template.dart' as ng;
 
 NgTestFixture<AppComponent> fixture;
 AppPO appPO;
 
-@AngularEntrypoint()
 void main() {
+  ng.initReflector();
   final testBed = new NgTestBed<AppComponent>();
 
   setUp(() async {
     fixture = await testBed.create();
-    appPO = await fixture.resolvePageObject(AppPO);
+    appPO = await new AppPO().resolve(fixture);
   });
 
   tearDown(disposeAnyRunningTest);
@@ -49,7 +48,7 @@ void selectHeroTests() {
 
   setUp(() async {
     await appPO.selectHero(5);
-    appPO = await fixture.resolvePageObject(AppPO); // Refresh PO
+    appPO = await new AppPO().resolve(fixture); // Refresh PO
   });
 
   test('is selected', () async {

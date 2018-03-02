@@ -320,7 +320,7 @@ Below is the "Little Tour of Heroes"  component.
 
       <ul><li *ngFor="let hero of heroes">{!{hero}!}</li></ul>
     ''',
-    directives: const [CORE_DIRECTIVES],
+    directives: const [coreDirectives],
   )
   class LittleTourComponent {
     List<String> heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];

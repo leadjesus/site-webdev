@@ -11,7 +11,7 @@ import 'crisis_service.dart';
   selector: 'my-crises',
   templateUrl: 'crises_component_3.html',
   styleUrls: const ['crises_component.css'],
-  directives: const [CORE_DIRECTIVES],
+  directives: const [coreDirectives],
 )
 class CrisesComponent implements OnInit {
   final Router _router;

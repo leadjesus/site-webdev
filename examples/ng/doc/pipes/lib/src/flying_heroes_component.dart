@@ -10,7 +10,7 @@ import 'heroes.dart';
   templateUrl: 'flying_heroes_component.html',
   styles: const ['#flyers, #all {font-style: italic}'],
   pipes: const [FlyingHeroesPipe],
-  directives: const [CORE_DIRECTIVES, formDirectives],
+  directives: const [coreDirectives, formDirectives],
 )
 // #docregion v1
 class FlyingHeroesComponent {
@@ -61,7 +61,7 @@ class FlyingHeroesComponent {
   styles: const ['.flyers, .all {font-style: italic}'],
   // #docregion impure-component
   pipes: const [FlyingHeroesImpurePipe],
-  directives: const [CORE_DIRECTIVES, formDirectives],
+  directives: const [coreDirectives, formDirectives],
 )
 class FlyingHeroesImpureComponent extends FlyingHeroesComponent {
   FlyingHeroesImpureComponent() {

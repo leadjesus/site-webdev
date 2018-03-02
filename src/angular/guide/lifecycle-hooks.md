@@ -516,7 +516,7 @@ Here's a child view that displays a hero's name in an input box:
   @Component(
     selector: 'my-child-view',
     template: '<input [(ngModel)]="hero">',
-    directives: const [CORE_DIRECTIVES, formDirectives],
+    directives: const [coreDirectives, formDirectives],
   )
   class ChildViewComponent {
     String hero = 'Magneta';

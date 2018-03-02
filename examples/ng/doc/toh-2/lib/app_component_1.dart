@@ -3,7 +3,7 @@ import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart' as fd;
 
 // A bit of hacking to make the template compiler happy:
-const formDirectives = const [CORE_DIRECTIVES, fd.formDirectives];
+const formDirectives = const [coreDirectives, fd.formDirectives];
 
 // #docregion metadata
 @Component(

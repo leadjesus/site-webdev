@@ -222,7 +222,7 @@ add all [CORE_DIRECTIVES][]:
   @Component(
     selector: 'my-app',
     // ···
-    directives: const [CORE_DIRECTIVES, formDirectives],
+    directives: const [coreDirectives, formDirectives],
   )
 ```
 

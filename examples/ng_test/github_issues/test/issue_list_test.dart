@@ -1,17 +1,17 @@
-@Tags(const ['aot'])
 @TestOn('browser')
 library angular_complex_test;
 
 import 'dart:async';
 
-import 'package:ng_test.github_issues/api.dart';
-import 'package:ng_test.github_issues/ui.dart';
-import 'package:ng_test.github_issues/testing.dart';
-
 import 'package:angular/angular.dart';
 import 'package:angular_test/angular_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:ng_test.github_issues/api.dart';
+import 'package:ng_test.github_issues/ui.dart';
+import 'package:ng_test.github_issues/testing.dart';
 import 'package:test/test.dart';
+
+import 'app_test.template.dart' as ng;
 
 @Component(
   selector: 'test',
@@ -20,8 +20,8 @@ import 'package:test/test.dart';
 )
 class ComplexTestComponent {}
 
-@AngularEntrypoint()
 void main() {
+  ng.initReflector();
   tearDown(disposeAnyRunningTest);
 
   group('$IssueListComponent', () {

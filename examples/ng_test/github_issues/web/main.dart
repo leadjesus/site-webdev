@@ -2,6 +2,8 @@ import 'package:angular/angular.dart';
 import 'package:ng_test.github_issues/api.dart';
 import 'package:ng_test.github_issues/ui.dart';
 
+import 'main.template.dart' as ng;
+
 @Component(
   selector: 'ng-app',
   directives: const [
@@ -12,7 +14,8 @@ import 'package:ng_test.github_issues/ui.dart';
 class NgAppComponent {}
 
 void main() {
-  bootstrap(NgAppComponent, const [
+  bootstrapStatic(NgAppComponent, [
     apiProviders,
-  ]);
+  ],
+  ng.initReflector);
 }

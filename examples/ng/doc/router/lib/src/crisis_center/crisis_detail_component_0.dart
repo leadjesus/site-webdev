@@ -12,7 +12,7 @@ import 'crisis_service.dart';
   selector: 'crisis-detail',
   templateUrl: 'crisis_detail_component_0.html',
   directives: const [
-    CORE_DIRECTIVES, formDirectives,
+    coreDirectives, formDirectives,
     ROUTER_DIRECTIVES, // needed for the 'Find help!' link
   ],
   styleUrls: const ['crisis_detail_component.css'],

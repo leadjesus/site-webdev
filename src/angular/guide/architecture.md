@@ -223,7 +223,7 @@ identifies the class immediately below it as a component class:
   @Component(
     selector: 'hero-list',
     templateUrl: 'hero_list_component.html',
-    directives: const [CORE_DIRECTIVES, formDirectives, HeroDetailComponent],
+    directives: const [coreDirectives, formDirectives, HeroDetailComponent],
     providers: const [HeroService],
   )
   class HeroListComponent implements OnInit {

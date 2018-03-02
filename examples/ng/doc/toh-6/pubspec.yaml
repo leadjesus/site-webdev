@@ -1,35 +1,25 @@
-# #docregion , additions
+# #docregion
 name: angular_tour_of_heroes
-# #enddocregion additions
 description: Tour of Heroes
 version: 0.0.1
 
 environment:
-  sdk: '>=1.24.0 <2.0.0'
+  sdk: '>=2.0.0-dev.3.0 <2.0.0'
 
-# #docregion additions
 dependencies:
-  angular: ^4.0.0
-  angular_forms: ^1.0.0
-  angular_router: ^1.0.2
+  angular: ^5.0.0-alpha+4
+  angular_forms: ^1.0.1-alpha+2
+  angular_router: ^2.0.0-alpha+2
   http: ^0.11.0
   stream_transform: ^0.0.6
-  # #enddocregion additions
 
 dev_dependencies:
-  angular_test: ^1.0.0
-  browser: ^0.10.0
-  dart_to_js_script_rewriter: ^1.0.1
-  mockito: ^2.0.2
+  angular_test: ^2.0.0-alpha
+  build_runner: ^0.7.10+1
+  build_test: ^0.10.0
+  build_web_compilers: ^0.3.0
+  mockito: ^2.2.3
+  # Temporarily use mock pageloader (https://github.com/dart-lang/site-webdev/issues/1277):
+  pageloader:
+    path: ../../../util/pageloader
   test: ^0.12.30
-  # #docregion additions
-
-transformers:
-- angular:
-    entry_points:
-    - web/main.dart
-    - test/**_test.dart
-# #enddocregion additions
-- test/pub_serve:
-    $include: test/**_test.dart
-- dart_to_js_script_rewriter

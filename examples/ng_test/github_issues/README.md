@@ -8,7 +8,7 @@ To run the demo app locally, simply use `pub`:
 $ pub serve
 ```
 
-In Chrome or Dartium, open up http://localhost:8080
+In Chrome, open up http://localhost:8080
 
 You'll see the Angular Dart github issues displayed in a table like you see above.
 

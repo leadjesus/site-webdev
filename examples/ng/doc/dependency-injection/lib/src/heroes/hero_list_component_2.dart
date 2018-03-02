@@ -18,7 +18,7 @@ import 'hero_service.dart';
     <div *ngFor="let hero of heroes">
       {{hero.id}} - {{hero.name}}
     </div>''',
-  directives: const [CORE_DIRECTIVES],
+  directives: const [coreDirectives],
 )
 class HeroListComponent {
   final List<Hero> heroes;

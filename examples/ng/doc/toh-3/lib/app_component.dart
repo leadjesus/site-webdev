@@ -12,7 +12,7 @@ import 'src/mock_heroes.dart';
   templateUrl: 'app_component.html',
   styleUrls: const ['app_component.css'],
   // #docregion directives
-  directives: const [CORE_DIRECTIVES, HeroDetailComponent],
+  directives: const [coreDirectives, HeroDetailComponent],
   // #enddocregion directives
 )
 class AppComponent {

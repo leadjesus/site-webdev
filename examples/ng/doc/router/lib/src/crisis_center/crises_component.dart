@@ -13,7 +13,7 @@ import 'crisis_center_home_component.dart';
   selector: 'my-crises',
   templateUrl: 'crises_component.html',
   styleUrls: const ['crises_component.css'],
-  directives: const [CORE_DIRECTIVES, ROUTER_DIRECTIVES],
+  directives: const [coreDirectives, ROUTER_DIRECTIVES],
 )
 // #docregion routes
 @RouteConfig(const [

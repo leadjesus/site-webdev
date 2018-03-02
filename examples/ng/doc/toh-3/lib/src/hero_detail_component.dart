@@ -25,7 +25,7 @@ import 'hero.dart';
     </div>''',
   // #enddocregion template
   // #docregion v1
-  directives: const [CORE_DIRECTIVES, formDirectives],
+  directives: const [coreDirectives, formDirectives],
 )
 // #docregion hero
 class HeroDetailComponent {

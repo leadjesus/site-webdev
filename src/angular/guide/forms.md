@@ -104,11 +104,11 @@ dependencies:
  version: 0.0.1
 
  environment:
-@@ -8,22 +7,13 @@
+@@ -8,15 +7,9 @@
 
  dependencies:
-   angular: ^4.0.0
-+  angular_forms: ^1.0.0
+   angular: ^5.0.0-alpha+4
++  angular_forms: ^1.0.1-alpha+2
 ```
 
 <?code-excerpt path-base="examples/ng/doc/forms"?>
@@ -177,7 +177,7 @@ Create the following file with the given content:
   @Component(
     selector: 'hero-form',
     templateUrl: 'hero_form_component.html',
-    directives: const [CORE_DIRECTIVES, formDirectives],
+    directives: const [coreDirectives, formDirectives],
   )
   class HeroFormComponent {
     Hero model = new Hero(18, 'Dr IQ', _powers[0], 'Chuck Overstreet');
