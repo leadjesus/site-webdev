@@ -61,7 +61,7 @@ module.exports = function (gulp, plugins, config) {
       await plugins.execp(runAngularTest, {
         cwd: exPath,
         okOnExitRE: /All tests passed/,
-        errorOnExitRE: /\[SEVERE\]|\[WARNING\](?! \w+: Throwing away cached asset graph)/,
+        errorOnExitRE: /\[SEVERE\]|\[WARNING\](?! \w+: (Invalidating|Throwing away cached) asset graph)/,
       });
       testStatus.passed.push(exPath);
     } catch (e) {

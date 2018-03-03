@@ -295,7 +295,7 @@ module.exports = function (gulp, plugins, config) {
           cwd: appDir,
           log: gutil.log,
           okOnExitRE: /Build: Succeeded/,
-          errorOnExitRE: /\[SEVERE\]|\[WARNING\](?! \w+: Throwing away cached asset graph)/,
+          errorOnExitRE: /\[SEVERE\]|\[WARNING\](?! \w+: (Invalidating|Throwing away cached) asset graph)/,
         });
       }
       await pexec(
