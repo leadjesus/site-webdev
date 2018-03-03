@@ -56,7 +56,7 @@ packages:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.5"
+    version: "2.0.6"
   barback:
     dependency: transitive
     description:
@@ -368,9 +368,11 @@ packages:
   pageloader:
     dependency: "direct dev"
     description:
-      path: "../../../util/pageloader"
-      relative: true
-    source: path
+      path: "examples/util/pageloader"
+      ref: "5-dev"
+      resolved-ref: db3b569e2c2469fdf88dbdd849096e29ce01aff4
+      url: "https://github.com/dart-lang/site-webdev.git"
+    source: git
     version: "0.0.1"
   path:
     dependency: transitive
